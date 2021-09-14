@@ -11,7 +11,9 @@ const getStandings = async () => {
 const getGames = async () => {
   try {
     const res = await fetch(
-      "https://api.squiggle.com.au/?q=games;year=2021;complete=!100"
+      `https://api.squiggle.com.au/?q=games;year=${new Date()
+        .getFullYear()
+        .toString()};complete=!100`
     );
     const body = await res.json();
     return body.games;
